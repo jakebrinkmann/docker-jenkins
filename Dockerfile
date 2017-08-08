@@ -9,8 +9,9 @@ RUN curl -L -H "Cookie: oraclelicense=accept-securebackup-cookie" \
 	mv jdk1.8.0_131 $JAVA_HOME
 ENV PATH="${PATH}:${JAVA_HOME}/bin"
 
+## Install Jenkins
 WORKDIR /home/jenkins
-RUN curl -O http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+RUN curl -LO "http://mirrors.jenkins.io/war-stable/latest/jenkins.war"
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "jenkins.war"]
 
